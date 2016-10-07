@@ -194,6 +194,21 @@ public class LineChartDataSet: LineRadarChartDataSet, ILineChartDataSet
         }
     }
     
+    internal var _customFormatter: ChartValueFormatter?
+    
+    public var customFormatter: ChartValueFormatter?
+        {
+        get
+        {
+            return _customFormatter
+        }
+        set
+        {
+            _customFormatter = newValue
+        }
+    }
+
+    
     // MARK: NSCopying
     
     public override func copyWithZone(zone: NSZone) -> AnyObject

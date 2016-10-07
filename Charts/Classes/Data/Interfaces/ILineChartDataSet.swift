@@ -91,4 +91,6 @@ public protocol ILineChartDataSet: ILineRadarChartDataSet
     
     /// Sets a custom FillFormatter to the chart that handles the position of the filled-line for each DataSet. Set this to null to use the default logic.
     var fillFormatter: ChartFillFormatter? { get set }
+    
+    var customFormatter: ChartValueFormatter? { get set }
 }

@@ -609,8 +609,15 @@ public class LineChartRenderer: LineRadarChartRenderer
                         continue
                     }
                     
+                    var text: String?
+                    if let chartValueFormatter = dataSet.customFormatter {
+                        text = chartValueFormatter.stringForIndex(e.xIndex)
+                    } else {
+                        text = formatter.stringFromNumber(e.value)!
+                    }
+                    
                     ChartUtils.drawText(context: context,
-                        text: formatter.stringFromNumber(e.value)!,
+                        text: text!,
                         point: CGPoint(
                             x: pt.x,
                             y: pt.y - CGFloat(valOffset) - valueFont.lineHeight),
