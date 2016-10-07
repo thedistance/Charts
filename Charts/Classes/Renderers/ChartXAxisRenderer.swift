@@ -201,6 +201,19 @@ public class ChartXAxisRenderer: ChartAxisRendererBase
                         let width = labelns.boundingRectWithSize(labelMaxSize, options: .UsesLineFragmentOrigin, attributes: labelAttrs, context: nil).size.width
                         position.x += width / 2.0
                     }
+                } else if (xAxis.avoidLastClippingEnabled)
+                {
+                    // avoid clipping of the last
+                    if (i == xAxis.values.count - 1 && xAxis.values.count > 1)
+                    {
+                        let width = labelns.boundingRectWithSize(labelMaxSize, options: .UsesLineFragmentOrigin, attributes: labelAttrs, context: nil).size.width
+                        
+                        if (width > viewPortHandler.offsetRight * 2.0
+                            && position.x + width > viewPortHandler.chartWidth)
+                        {
+                            position.x -= width / 2.0
+                        }
+                    }
                 }
                 
                 drawLabel(context: context, label: label!, xIndex: i, x: position.x, y: pos, attributes: labelAttrs, constrainedToSize: labelMaxSize, anchor: anchor, angleRadians: labelRotationAngleRadians)

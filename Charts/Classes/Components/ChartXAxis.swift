@@ -65,6 +65,8 @@ public class ChartXAxis: ChartAxisBase
     /// if set to true, the chart will avoid that the first and last label entry in the chart "clip" off the edge of the chart
     public var avoidFirstLastClippingEnabled = false
     
+    public var avoidLastClippingEnabled = false
+    
     /// Custom formatter for adjusting x-value strings
     private var _xAxisValueFormatter: ChartXAxisValueFormatter = ChartDefaultXAxisValueFormatter()
     
